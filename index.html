@@ -15,7 +15,7 @@ textarea,input,button{font:inherit} textarea{user-select:text;-webkit-user-selec
 <body class="pb-10">
 <header class="sticky top-0 z-20 bg-gradient-to-r from-emerald-800 to-green-600 text-white p-4 shadow flex justify-between items-center gap-3">
 <div><h1 class="font-bold text-lg">Dieta Personalizzata</h1><p class="text-xs text-emerald-100">Planner settimanale e mensile</p></div>
-<div class="flex gap-2"><button onclick="exportData()" class="rounded-lg bg-white/15 border border-white/30 px-3 py-2 text-sm">Backup file</button><button onclick="document.getElementById('importFile').click()" class="rounded-lg bg-white/15 border border-white/30 px-3 py-2 text-sm">Importa</button><input id="importFile" type="file" accept=".json,application/json" class="hide" onchange="importData(event)"></div>
+<div class="flex flex-wrap justify-end items-center gap-1.5"><button type="button" onclick="googleSignIn()" id="googleSignInBtn" class="rounded-lg bg-white text-emerald-900 border border-white/70 px-2 py-1.5 text-xs font-semibold shadow-sm">Accedi con Google</button><button onclick="exportData()" class="rounded-lg bg-white/15 border border-white/30 px-2 py-1.5 text-xs">Backup</button><button onclick="document.getElementById('importFile').click()" class="rounded-lg bg-white/15 border border-white/30 px-2 py-1.5 text-xs">Importa</button><input id="importFile" type="file" accept=".json,application/json" class="hide" onchange="importData(event)"></div>
 </header>
 <main class="max-w-xl mx-auto p-3 space-y-4">
 <section class="bg-white rounded-2xl border p-4 shadow-sm">
@@ -41,7 +41,7 @@ textarea,input,button{font:inherit} textarea{user-select:text;-webkit-user-selec
 <button type="button" onclick="saveGoogleConfig()" class="rounded-xl border border-slate-300 px-4 py-2.5 font-semibold mt-2">Salva configurazione</button>
 </div>
 <div id="configSaved" class="hide rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">Client ID configurato in questo dispositivo. Il codice è nascosto.</div>
-<div class="flex flex-wrap gap-2"><button type="button" onclick="editGoogleConfig()" id="editConfigBtn" class="hide rounded-xl border border-slate-300 px-4 py-2.5 font-semibold">Modifica Client ID</button><button type="button" onclick="googleSignIn()" id="googleSignInBtn" class="rounded-xl bg-blue-700 text-white px-4 py-2.5 font-semibold">Accedi con Google</button><button onclick="googleSignOut()" id="googleSignOutBtn" class="rounded-xl border px-4 py-2.5">Esci</button></div>
+<div class="flex flex-wrap gap-2"><button type="button" onclick="editGoogleConfig()" id="editConfigBtn" class="hide rounded-xl border border-slate-300 px-4 py-2.5 font-semibold">Modifica Client ID</button><button onclick="googleSignOut()" id="googleSignOutBtn" class="rounded-xl border px-4 py-2.5">Esci</button></div>
 <p id="googleStatus" role="status" class="text-sm text-slate-600">Non collegato a Google Drive.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button onclick="driveBackup()" class="rounded-xl bg-emerald-700 text-white p-3 font-semibold">☁️ Backup su Drive</button><button onclick="driveRestore()" class="rounded-xl border border-emerald-700 text-emerald-800 p-3 font-semibold">↩ Ripristina da Drive</button></div>
 <label class="flex items-start gap-2 text-sm text-slate-600"><input id="autoSync" type="checkbox" checked class="mt-1" onchange="saveAutoSync()"> <span>Sincronizza automaticamente: carica le modifiche e controlla il cloud ogni 5 secondi mentre l’app è aperta e connessa.</span></label>
